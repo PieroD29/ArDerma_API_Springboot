@@ -81,4 +81,8 @@ public class UserService {
 		
 	}
 	
+	public void deleteUser( Long id ) {
+		this.repository.deleteById(id);
+	}
+	
 }

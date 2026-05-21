@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "permission")
+@Table(name = "Permission")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Permission {

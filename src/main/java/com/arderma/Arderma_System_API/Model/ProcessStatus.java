@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "process_status")
+@Table(name = "Process_Status")
 public class ProcessStatus {
 	
 	@Id
