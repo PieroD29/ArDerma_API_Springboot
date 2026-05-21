@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Order_Discount")
+@Table(name = "order_discount")
 public class Order_Discount {
 
 	@Id

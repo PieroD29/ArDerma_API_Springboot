@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Receipt_Type")
+@Table(name = "receipt_type")
 public class Receipt_Type {
 
 	@Id
