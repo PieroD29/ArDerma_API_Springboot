@@ -11,36 +11,36 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.arderma.Arderma_System_API.ModelDTO.UserDTO;
-import com.arderma.Arderma_System_API.Service.UserService;
+import com.arderma.Arderma_System_API.ModelDTO.SaleDTO;
+import com.arderma.Arderma_System_API.Service.SaleService;
 
 @RestController
 @RequestMapping("/api")
-public class UserController {
+public class SaleController {
 
-	private final UserService service;
+	private final SaleService service;
 	
-	public UserController( UserService service ) {
+	public SaleController( SaleService service ) {
 		this.service = service;
 	}
 	
-	@GetMapping("/user")
-	public List<UserDTO> getUsers(){
-		return service.getUsers();
-	}
-
-	@PostMapping("/user")
-	public UserDTO createUser( @RequestBody UserDTO dto ) {
-		return service.saveUser(dto);
+	@GetMapping("/sale")
+	public List<SaleDTO> getSales(){
+		return service.getSales();
 	}
 	
-	@PutMapping("/user")
-	public UserDTO updateUser( @RequestBody UserDTO dto ) {
-		return service.saveUser(dto);
+	@PostMapping("/sale")
+	public SaleDTO createSale( @RequestBody SaleDTO dto ) {
+		return service.saveSale(dto);
 	}
 	
-	@DeleteMapping("/user/{id}")
-	public void deleteUser( @PathVariable Long id ) {
+	@PutMapping("/sale")
+	public SaleDTO updateSale( @RequestBody SaleDTO dto ) {
+		return service.saveSale(dto);
+	}
+	
+	@DeleteMapping("/sale/{id}")
+	public void deleteSale( @PathVariable Long id ) {
 		this.service.deleteUser(id);
 	}
 	

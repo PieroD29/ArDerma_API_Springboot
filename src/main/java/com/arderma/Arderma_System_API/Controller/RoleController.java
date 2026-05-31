@@ -11,37 +11,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.arderma.Arderma_System_API.ModelDTO.UserDTO;
-import com.arderma.Arderma_System_API.Service.UserService;
+import com.arderma.Arderma_System_API.ModelDTO.RoleDTO;
+import com.arderma.Arderma_System_API.Service.RoleService;
 
 @RestController
 @RequestMapping("/api")
-public class UserController {
+public class RoleController {
 
-	private final UserService service;
+	private final RoleService service;
 	
-	public UserController( UserService service ) {
+	public RoleController( RoleService service ) {
 		this.service = service;
 	}
 	
-	@GetMapping("/user")
-	public List<UserDTO> getUsers(){
-		return service.getUsers();
-	}
-
-	@PostMapping("/user")
-	public UserDTO createUser( @RequestBody UserDTO dto ) {
-		return service.saveUser(dto);
+	@GetMapping("/role")
+	public List<RoleDTO> getRoles(){
+		return service.getRoles();
 	}
 	
-	@PutMapping("/user")
-	public UserDTO updateUser( @RequestBody UserDTO dto ) {
-		return service.saveUser(dto);
+	@PostMapping("/role")
+	public RoleDTO createRole( @RequestBody RoleDTO dto ) {
+		return service.saveRole(dto);
 	}
 	
-	@DeleteMapping("/user/{id}")
-	public void deleteUser( @PathVariable Long id ) {
-		this.service.deleteUser(id);
+	@PutMapping("/role")
+	public RoleDTO updateRole( @RequestBody RoleDTO dto ) {
+		return service.saveRole(dto);
+	}
+	
+	@DeleteMapping("/role/{id}")
+	public void deleteRole( @PathVariable Long id ) {
+		this.service.deleteRole(id);
 	}
 	
 }

@@ -28,6 +28,8 @@ public class UserDTO {
 	
 	String address;
 	
+	String contact_email;
+	
 	String password;
 	
 	Long document_type_id;

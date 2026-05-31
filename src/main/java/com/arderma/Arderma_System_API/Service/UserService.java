@@ -20,23 +20,28 @@ public class UserService {
 		this.repository = repository;
 		}
 	
+	private UserDTO toDTO( User u ) {
+		return new UserDTO(
+				u.getId(),
+				u.getFirst_name(),
+				u.getLast_name(), 
+				u.getEmail(), 
+				u.getDocument_number(), 
+				u.getBirth_date(), 
+				u.getPhone(), 
+				u.isGender(), 
+				u.getAddress(),
+				u.getContact_email(),
+				u.getPassword(), 
+				u.getDocumenttype().getId(), 
+				u.getRole().getId() ) ;
+	}
+	
 	public List<UserDTO> getUsers(){
 		return repository.findAll()
 				.stream()
-				.map( u -> new UserDTO(
-						u.getId(),
-						u.getFirst_name(),
-						u.getLast_name(), 
-						u.getEmail(), 
-						u.getDocument_number(), 
-						u.getBirth_date(), 
-						u.getPhone(), 
-						u.isGender(), 
-						u.getAddress(), 
-						u.getPassword(), 
-						u.getDocumenttype().getId(), 
-						u.getRole().getId() ) 
-					).collect(Collectors.toList());
+				.map( this::toDTO )
+				.collect(Collectors.toList());
 	}
 	
 	public UserDTO saveUser( UserDTO dto ) {
@@ -45,7 +50,7 @@ public class UserService {
 		DocumentType documentType = new DocumentType();
 		Role role = new Role();
 		
-		if ( dto.getId() != null ) user.setId( user.getId() );
+		if ( dto.getId() != null ) user.setId( dto.getId() );
 		
 		user.setFirst_name( dto.getFirst_name() );
 		user.setLast_name( dto.getLast_name() );
@@ -73,7 +78,8 @@ public class UserService {
 				svUser.getBirth_date(), 
 				svUser.getPhone(), 
 				svUser.isGender(), 
-				svUser.getAddress(), 
+				svUser.getAddress(),
+				svUser.getContact_email(),
 				svUser.getPassword(), 
 				svUser.getDocumenttype().getId(), 
 				svUser.getRole().getId()

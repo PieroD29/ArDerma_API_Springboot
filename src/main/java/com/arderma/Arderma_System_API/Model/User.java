@@ -50,6 +50,9 @@ public class User {
 	private String address;
 	
 	@Column
+	private String contact_email;
+	
+	@Column
 	private String password;
 	
 	@ManyToOne
